@@ -9,9 +9,9 @@ def cleanhtml(raw_html):
     cleantext = re.sub(cleanr, '', str(raw_html))
     return cleantext
 
-directory = "www.oaklandnet.com/form802/"
+directory = "www.oaklandnet.com/temp/"
 
-file_list = os.listdir("www.oaklandnet.com/form802")
+file_list = os.listdir("www.oaklandnet.com/temp")
 for filename in file_list:
     if filename.startswith('Default.asp?id'):
         print(filename)
@@ -21,7 +21,7 @@ for filename in file_list:
         divs = soup.select(".w200,.w550")
         better_divs = []
         for div in divs:
-            print(div)
+            # print(div)
             better = cleanhtml(div)
             better_divs.append(better)
         b = {better_divs[i]: better_divs[i+1]
